@@ -13,17 +13,24 @@ function Registration() {
     const handleData =(e)=>{
         setInput({...input,[e.target.name]:e.target.value})
         console.log(input);
+        
        
        
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
+        // setInput("");
         if(!input.name || !input.email || !input.phone){
             alert("All fields are Mandatory")
         }
         else{
             setFlag(true)
+            // setInput("")
         }
+    }
+
+    const Reset=()=>{
+      
     }
   return (
     <>
@@ -56,8 +63,8 @@ function Registration() {
     <label for="exampleFormControlInput1" className="form-label">Mobile Number*</label>
     <input type='tel'  maxLength={10} name='phone'  value={input.phone} onChange={handleData} className="form-control"  placeholder="Enter your Mobile Number"/>
   </div>
-  <button type='submit' className='btn btn-primary'>Register Now</button>
-  <pre>{(flag)? <p className='ui-define'>Hello {input.name}, You've Registered Successfully !</p>:""}</pre>
+  <button type='submit' onChange={Reset} className='btn btn-primary'>Register Now</button>
+  <pre>{(flag)? <h4 className='ui-define'>Hello {input.name}, You've Registered Successfully !</h4>:""}</pre>
   
           </form>
         </div>
